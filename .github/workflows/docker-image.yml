@@ -13,12 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - name: Checkout repo
-      uses: actions/checkout@v2
-
     - name: Run Prisma Cloud 
       id: Prisma Cloud
       uses: bridgecrewio/checkov-action@master
