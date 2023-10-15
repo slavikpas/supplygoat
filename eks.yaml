@@ -56,6 +56,13 @@ Resources:
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
         - arn:aws:iam::aws:policy/AmazonEKSServicePolicy
+      Tags:
+        - Key: yor_trace
+          Value: 4d4579d9-3a8d-426a-9a70-e7eb5a448e82
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   VPC:
     Type: AWS::EC2::VPC
     Properties:
@@ -65,12 +72,24 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub '${AWS::StackName}-VPC'
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
+        - Key: yor_trace
+          Value: 289b3cb5-1e09-4947-82eb-b18c4f2651c8
   InternetGateway:
     Type: "AWS::EC2::InternetGateway"
     Properties:
       Tags:
         - Key: Name
           Value: !Sub '${AWS::StackName}-Internet Gateway'
+        - Key: yor_trace
+          Value: 5bd0dbe7-b219-4efd-984b-e2002f2177bf
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   VPCGatewayAttachment:
     Type: "AWS::EC2::VPCGatewayAttachment"
     Properties:
@@ -85,6 +104,12 @@ Resources:
           Value: Public Subnets
         - Key: Network
           Value: Public
+        - Key: yor_trace
+          Value: 37a10b71-7728-46d1-a60d-92410b2a0d77
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   PrivateRouteTable01:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -94,6 +119,12 @@ Resources:
           Value: Private Subnet AZ1
         - Key: Network
           Value: Private01
+        - Key: yor_trace
+          Value: 2e9811c3-bda5-4105-96e4-f79c26106929
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   PrivateRouteTable02:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -103,6 +134,12 @@ Resources:
           Value: Private Subnet AZ2
         - Key: Network
           Value: Private02
+        - Key: yor_trace
+          Value: 140fdefc-afad-457a-adab-392374386067
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   PublicRoute:
     DependsOn:
     - VPCGatewayAttachment
@@ -141,6 +178,12 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub '${AWS::StackName}-NatGatewayAZ1'
+        - Key: yor_trace
+          Value: 384ebfc5-27dc-442f-8a9a-e2ea5e947a10
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   NatGateway02:
     DependsOn:
     - NatGatewayEIP2
@@ -153,18 +196,38 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub '${AWS::StackName}-NatGatewayAZ2'
+        - Key: yor_trace
+          Value: 1fd2d023-b7c4-429d-ae0b-8dc13b5b383f
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   NatGatewayEIP1:
     DependsOn:
     - VPCGatewayAttachment
     Type: 'AWS::EC2::EIP'
     Properties:
       Domain: vpc
+      Tags:
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
+        - Key: yor_trace
+          Value: bc4bd7d3-f9b5-4c3d-a643-3f2248c9bf9f
   NatGatewayEIP2:
     DependsOn:
     - VPCGatewayAttachment
     Type: 'AWS::EC2::EIP'
     Properties:
       Domain: vpc
+      Tags:
+        - Key: yor_trace
+          Value: 3a8ab4e5-c7a2-4a15-8ff3-9a0face409c6
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   PublicSubnet01:
     Type: AWS::EC2::Subnet
     Metadata:
@@ -182,6 +245,12 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub "${AWS::StackName}-PublicSubnet01"
+        - Key: yor_trace
+          Value: fea2bcd8-6508-4d2e-b210-107c142de3a0
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   PublicSubnet02:
     Type: AWS::EC2::Subnet
     Metadata:
@@ -199,6 +268,12 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub "${AWS::StackName}-PublicSubnet02"
+        - Key: yor_trace
+          Value: 30872fcb-a3c4-4692-9217-14b5637b52d3
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   PrivateSubnet01:
     Type: AWS::EC2::Subnet
     Metadata:
@@ -218,6 +293,12 @@ Resources:
           Value: !Sub "${AWS::StackName}-PrivateSubnet01"
         - Key: "kubernetes.io/role/internal-elb"
           Value: "1"
+        - Key: yor_trace
+          Value: 812cb739-145c-425b-82a2-31a95abaec60
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   PrivateSubnet02:
     Type: AWS::EC2::Subnet
     Metadata:
@@ -237,6 +318,12 @@ Resources:
           Value: !Sub "${AWS::StackName}-PrivateSubnet02"
         - Key: "kubernetes.io/role/internal-elb"
           Value: "1"
+        - Key: yor_trace
+          Value: 1671bb14-e31e-42d1-96cf-7c2a3044a763
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   PublicSubnet01RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
@@ -262,6 +349,13 @@ Resources:
     Properties:
       GroupDescription: Cluster communication with worker nodes
       VpcId: !Ref VPC
+      Tags:
+        - Key: yor_trace
+          Value: e235d9d6-960e-4902-86db-64724940a145
+        - Key: git_repo
+          Value: supplygoat
+        - Key: git_org
+          Value: slavikpas
   EKSCluster:
     Type: AWS::EKS::Cluster
     Properties:
